@@ -8,3 +8,7 @@ The ancient Greeks reached the Iberian Peninsula, of which they had heard from t
 ## Introduction
 Combine the words ‘hacking’ and ‘marathon’ and you have a ‘hackathon’, used in the sense of a competitive exploratory activity intended to solve specific challenges.
 ## Problem
+During military operations, mission success can hinge on intelligence extracted from voice conversations. These communications must be transcribed to text for analysis; however, audio-recordings are rarely of studio-quality. This challenge is to create a Speech-to-Text (STT) system capable of accurately transcribing noisy communications. The system should be designed to overcome various types of noise pollution such as background noise, radio feedback and/or multiple speakers. We encourage the use of AI and other methods.
+## Solution
+
+![noise-speech](https://github.com/minitecnia/Noisy_Speech_Transcription/assets/50556907/dea9e1c3-ae51-47b2-842e-e828de140139)
