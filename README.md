@@ -14,8 +14,15 @@ Iberian NST (IbNST) is a software application intended to help transcription fro
 
 ![noise-speech](https://github.com/minitecnia/Noisy_Speech_Transcription/assets/50556907/dea9e1c3-ae51-47b2-842e-e828de140139)
 
-# Technologies
+## Technologies
+For sucessfully develop this project we have use the next known technologies:
+- Noisereduce module for digital noise reduction
+- Pyaudio and scipy for audio treatment
+- Whisper module: AI module for speech to text transcription
+- Openai API for interacting with natural languaje processors
+- Openai ChatGPT for Chat prompting
+- GPT4All platforma for local chat prompting
 
-# Test files
+## Test files
 https://commons.wikimedia.org/wiki/Category:Audio_files_of_speeches_about_World_War_II
 
