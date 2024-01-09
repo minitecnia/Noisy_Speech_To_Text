@@ -16,6 +16,8 @@ Iberian NST (IbNST) is a software application intended to help transcription fro
 
 ## Technologies
 For sucessfully develop this project we have use the next known technologies:
+- Python and C++ languages
+- Jupyter notebook and Visual for coding environment
 - Noisereduce module for digital noise reduction
 - Pyaudio and scipy for audio treatment
 - Whisper module: AI module for speech to text transcription
