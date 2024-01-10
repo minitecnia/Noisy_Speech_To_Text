@@ -12,7 +12,7 @@ During military operations, mission success can hinge on intelligence extracted 
 ## Description
 Iberian NST (IbNST) is a software application intended to help transcription from speech audio to text. To do this task, IbNST is augmented with some features like noise reduction, environmental noise digital discrimination and conversations selection by using machine learning (ML) models and natural language processors (NLP) models.
 
-![noise-speech](https://github.com/minitecnia/Noisy_Speech_Transcription/assets/50556907/dea9e1c3-ae51-47b2-842e-e828de140139)
+![IbNST](https://github.com/minitecnia/Noisy_Speech_Transcription/assets/50556907/919865e7-26f5-49d0-bc04-cdb3a27707c4)
 
 ## Technologies
 For sucessfully develop this project we have use the next known technologies:
