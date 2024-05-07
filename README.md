@@ -85,10 +85,6 @@ Open source project
 ## Project status
 Fine tuning models for better transcription.
 
-## Integrate tools
-
-- [ ] [Set up project integrations]([https://gitlab.dev.nato.int/tide-hackathon/noisy-speech-to-text/iberian/instt/-/settings/integrations](https://github.com/minitecnia/Noisy_Speech_Transcription/tree/main))
-
 ## Adding files
 
 - [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
@@ -96,7 +92,7 @@ Fine tuning models for better transcription.
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.dev.nato.int/tide-hackathon/noisy-speech-to-text/iberian/instt.git
+git remote add origin [https://github.com/minitecnia/Noisy_Speech_Transcription/tree/main]
 git branch -M main
 git push -uf origin main
 ```
