@@ -2,15 +2,120 @@
 
 # IberIAn NSTT (Noisy Speech Transcription to Text)
 Transcription of a noisy speech using audio tools and artificial intelligence.
-# Team IberIAn
-Team Iberia Inteligence Artificial network (IberIAn)
-The ancient Greeks reached the Iberian Peninsula, of which they had heard from the Phoenicians, by voyaging westward on the Mediterranean. Hecataeus of Miletus was the first known to use the term Iberia, which he wrote about c. 500 BCE. Herodotus of Halicarnassus says of the Phocaeans that "it was they who made the Greeks acquainted with the iberian peninsula as Iberia. According to prior historians used Iberia to mean the country "this side of the Iberos (the Ebro)" as far north as the Rhône, but in his day they set the Pyrenees as the limit. Polybius respected that limit, but identified Iberia as the Mediterranean side as far south as Gibraltar, with the Atlantic side having no name. Elsewhere he says that Saguntum is "on the seaward foot of the range of hills connecting Iberia and Celtiberia".
-## Introduction
-'Hackaton' combines the words ‘hacking’ and ‘marathon’ and is used in the sense of a competitive exploratory activity intended to solve specific challenges.
-## Problem
-During military operations, mission success can hinge on intelligence extracted from voice conversations. These communications must be transcribed to text for analysis; however, audio-recordings are rarely of studio-quality. This challenge is to create a Speech-to-Text (STT) system capable of accurately transcribing noisy communications. The system should be designed to overcome various types of noise pollution such as background noise, radio feedback and/or multiple speakers. We encourage the use of AI and other methods.
+***
+
+## Name
+InsTT is Iberian noisy Speech To Text software.
+
 ## Description
-Iberian NST (IbNST) is a software application intended to help transcription from speech audio to text. To do this task, IbNST is augmented with some features like noise reduction, environmental noise digital discrimination and conversations selection by using machine learning (ML) models and natural language processors (NLP) models.
+During military operations, mission success can hinge on intelligence extracted from voice conversations. These communications must be transcribed to text for analysis; however, audio-recordings are rarely of studio-quality. This challenge is to create a Speech-to-Text (STT) system capable of accurately transcribing noisy communications. The system should be designed to overcome various types of noise pollution such as background noise, radio feedback and/or multiple speakers.
+InSTT is a software application intended to help transcription from speech audio to text. To do this task, InSTT is augmented with some features like noise reduction, environmental noise digital discrimination and conversations selection by using machine learning (ML) models and eventually natural language processors (NLP) models.
+
+## Badges
+On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+
+## Installation
+
+For installing in local mode, download this Git:
+
+After, use: pip install -r requirements.txt
+
+We recommend to install Pytorch manually in order to mitigate potential compatibility issues across different operating systems and Python versions. Use the detailed process in:
+
+https://pytorch.org/get-started/locally/
+
+## Usage
+
+Operating systems (tested):
+
+- Windows 10
+- Linux (Ubuntu 22.04)
+
+Go to main folder and type the next command:
+
+python main.py
+
+When running application in local mode, tornado opens a socket in port 9000. We can navigate writting in our web browser: http://localhost:9000/
+
+# Software achitecture
+
+## Web User interface
+
+For Web UI deployment we have used Tornado. Tornado is a Python web framework and asynchronous networking library. By using non-blocking network I/O, Tornado can scale to tens of thousands of open connections, making it ideal for long polling, WebSockets, and other applications that require a long-lived connection to each user. When running application in local mode, tornado activates a socket in port 9000. We can navigate writting in our web browser: http://localhost:9000/
+
+## Audio treatment
+
+The audio processing procedure encompasses recording, format conversion when necessary, segmenting audio in nearly all cases, and implementing noise reduction. The primary tool utilized for noise reduction is an open-source module known as 'noisereduce'. Additional info can be read in Documentation folder.
+
+![image info](images/Audio-flowchart.png)
+
+## Audio transcription and translation
+
+For transcription and translation functionalities, we chose to explore two open-source modules: Whisper AI and SpeechBrain modules. While some related studies suggest that both could potentially serve for diarization tasks as well, our current focus involves fine-tuning models to render this task achievable, straightforward, and efficient. Additional info can be read in Documentation folder.
+
+![image info](images/Data-flowchart.png)
+
+## References
+
+- OpenAI whisper: https://github.com/openai/whisper/tree/main
+- Noise reducing Noisereduce: https://pypi.org/project/noisereduce/
+- Tornado framework: https://www.tornadoweb.org/en/stable/
+
+## Roadmap
+If you have ideas for releases in the future, it is a good idea to list them in the README.
+
+## Contributing
+State if you are open to contributions and what your requirements are for accepting them.
+
+You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+
+## Authors and acknowledgment
+- Francisco Jose Ochando Terreros. Ms Computer engineer 
+- Antonio Miguel Mejias Vello. Ms Armament engineer (Telecommunications engineer)
+- Alejandro Gómez Sierra. Geospatial technologies engineer
+
+We appreciate the contribution of Spanish Army for this development and the contribution of Zelenza Company for its engineers support.
+
+## License
+Open source project
+
+## Project status
+Fine tuning models for better transcription.
+
+## Integrate tools
+
+- [ ] [Set up project integrations](https://gitlab.dev.nato.int/tide-hackathon/noisy-speech-to-text/iberian/instt/-/settings/integrations)
+
+## Adding files
+
+- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
+- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+
+```
+cd existing_repo
+git remote add origin https://gitlab.dev.nato.int/tide-hackathon/noisy-speech-to-text/iberian/instt.git
+git branch -M main
+git push -uf origin main
+```
+## Test and Deploy
+
+Use the built-in continuous integration in GitLab.
+
+- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
+- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
+- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
+- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
+- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+
+## Collaborate with your team
+
+- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
+- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
+- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
+- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+
+## Visuals
+Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
 
 ![IbNST](https://github.com/minitecnia/Noisy_Speech_Transcription/assets/50556907/919865e7-26f5-49d0-bc04-cdb3a27707c4)
 
