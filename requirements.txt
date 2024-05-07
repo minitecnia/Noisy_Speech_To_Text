@@ -1,0 +1,8 @@
+Werkzeug==2.2.2
+gunicorn==20.1.0
+librosa==0.7.0
+numpy==1.16.5
+numba==0.48.0
+pyAudio==0.2.11
+Flask
+vosk
