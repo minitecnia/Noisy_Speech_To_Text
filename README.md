@@ -1,7 +1,9 @@
 ![Speech-gpt](https://github.com/minitecnia/Noisy_Speech_Transcription/assets/50556907/959bb27e-004f-4c66-a004-2cca3795ae8f)
 
-# IberIAn NSTT (Noisy Speech Transcription to Text)
-Transcription of a noisy speech using audio tools and artificial intelligence.
+# InSTT
+InsTT is Iberian noisy Speech To Text software.
+
+![image info](images/instt2.jpg)
 ***
 
 ## Name
@@ -106,18 +108,6 @@ Use the built-in continuous integration in GitLab.
 - [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
 - [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
 - [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-## Collaborate with your team
-
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-![IbNST](https://github.com/minitecnia/Noisy_Speech_Transcription/assets/50556907/919865e7-26f5-49d0-bc04-cdb3a27707c4)
 
 ## Technologies
 For sucessfully develop this project we have use the next known technologies:
