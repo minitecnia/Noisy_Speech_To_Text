@@ -1,6 +1,6 @@
 ![Speech-gpt](https://github.com/minitecnia/Noisy_Speech_Transcription/assets/50556907/959bb27e-004f-4c66-a004-2cca3795ae8f)
 
-# IberIAn NST (Noisy Speech Transcription with IA)
+# IberIAn NSTT (Noisy Speech Transcription to Text)
 Transcription of a noisy speech using audio tools and artificial intelligence.
 # Team IberIAn
 Team Iberia Inteligence Artificial network (IberIAn)
