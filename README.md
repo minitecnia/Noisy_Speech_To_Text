@@ -28,22 +28,26 @@ https://pytorch.org/get-started/locally/
 
 ## Usage
 
-Operating systems (tested):
+Operating systems:
 
-- Windows 10
+- Windows 10 (tested)
 - Linux (Ubuntu 22.04)
 
-Go to main folder and type the next command:
+Go to main folder (root) and type the next command for creating a running virtual environment:
 
-python main.py
+env.bat
 
-When running application in local mode, tornado opens a socket in port 9000. We can navigate writting in our web browser: http://localhost:9000/
+Type the next command to run app:
+
+python app.py
+
+When running application in local mode, Flask opens a socket in port 5000. We can navigate writting in our web browser: http://localhost:5000/
 
 # Software achitecture
 
 ## Web User interface
 
-For Web UI deployment we have used Tornado. Tornado is a Python web framework and asynchronous networking library. By using non-blocking network I/O, Tornado can scale to tens of thousands of open connections, making it ideal for long polling, WebSockets, and other applications that require a long-lived connection to each user. When running application in local mode, tornado activates a socket in port 9000. We can navigate writting in our web browser: http://localhost:9000/
+For Web UI deployment we have used Flask. Flask is a Python web framework and networking library. Yo can use, alternately Tornado which is another framework, using non-blocking network I/O. It can scale to tens of thousands of open connections, making it ideal for long polling, WebSockets, and other applications that require a long-lived connection to each user. When running application in local mode, Flask activates a socket in port 9000. We can navigate writting in our web browser: http://localhost:5000/
 
 ## Audio treatment
 
