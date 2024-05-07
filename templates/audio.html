@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block navigation %}
+<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+	<li><a href="/index" class="nav-link px-2 text-white">Transcriber</a></li>
+	<li><a href="/advanced" class="nav-link px-2 text-secondary">Advanced</a></li>
+	<li><a href="/chat" class="nav-link px-2 text-secondary">Chat</a></li>
+	<li><a href="/config" class="nav-link px-2 text-secondary">Configuration</a></li>
+	<li><a href="/bi_gr" class="nav-link px-2 text-secondary">Bi</a></li>
+  </ul>
+{% endblock %}
+
+{% block body %}
+
+	<div class="no_header"><span style="display:block; height: 25px;"></span>
+	
+	<div class="contenedor_izquierda">
+		<h5>{{message}}</h5> 
+  
+		<audio controls> 
+		  <source src="/static/Apollo_11_launch_day_communication_relayed_through_Canary_Station.wav" /> 
+		</audio> 
+	  
+		<script src="/static/serve.js" charset="utf-8"></script>
+	</div>
+
+	<div class="contenedor_centro"></div>
+
+	<div class="contenedor_derecha">
+		<h5>{{message}}</h5> 
+  
+		<audio controls> 
+		  <source src={{file}} /> 
+		</audio> 
+
+		<p>Audio: {{file}}</p>
+	  
+		<script src="/static/serve.js" charset="utf-8"></script>
+	</div>
+
+	<script src="./static/js/get_path.js"></script>
+
+	<div class="b-example-divider"></div>
+
+	<!--<div class="container_centrado">-->
+		<div class="contenedor_izquierda">
+			<div class="text_area_container">
+			<h5>Text Transcription</h5>
+			<textarea  id="transcription_window" name="story" rows="10" readonly>
+			{{transcription_text}}
+			</textarea>
+			</div>
+		</div>
+
+		<div class="contenedor_centro"></div>
+	
+		<div class="contenedor_derecha">
+			<div class="text_area_container">
+			<h5>Text diarization</h5>
+			<textarea  id="segments_window" name="story" rows="10" readonly>
+			{{segments}}
+			</textarea>
+			</div>
+		</div>
+	<!--</div>-->
+
+	<div class="b-example-divider"></div>
+	
+	<script src="./static/js/blink.js"></script>
+    <audio id='original_sample' src={{original_sample_path}} preload="auto"></audio>
+    <audio id="clean_sample" src={{clean_sample_path}} preload="auto"></audio>
+
+{% endblock %}

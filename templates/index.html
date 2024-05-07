@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block navigation %}
+<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+	<li><a href="/index" class="nav-link px-2 text-white">Transcriber</a></li>
+	<li><a href="/advanced?grabar=True" class="nav-link px-2 text-secondary">Advanced</a></li>
+	<li><a href="/chat" class="nav-link px-2 text-secondary">Chat</a></li>
+	<li><a href="/config" class="nav-link px-2 text-secondary">Configuration</a></li>
+	<li><a href="/bi" class="nav-link px-2 text-secondary">Bi</a></li>
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body %}
+
+	<div class="no_header"><span style="display:block; height: 25px;"></span>
+	
+	<div class="contenedor_izquierda">
+		<h5>Micro recording</h5>
+		<div class="container_centrado">
+			<button type="button" id="rec-button" class="btn btn-outline-danger" style="vertical-align:middle" >
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" fill="currentColor" class="bi bi-record-btn" viewBox="0 0 16 16">
+				<path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+				<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+				</svg> 
+                Record
+			</button>
+			<p id="transcribing_indicator">{{info}}</p>	
+		</div>
+	</div>
+
+	<div class="contenedor_centro"></div>
+
+	<div class="contenedor_derecha">
+		<h5>Select audio file.</h5>
+		<form method="POST" enctype="multipart/form-data" action="/index" id="load_audio">
+			<table align="center">
+				<tr>
+				<td align="left"><label for="myfile"></label><input type="file" id="myfile" value="Choose your wav file" name="myfile" accept=".wav" ></td>
+				<td align="left"><input type="submit" class="btn btn-outline-danger" id="enviar" value="Load" ></td>
+				</tr>
+				<!--<tr><td>
+					<form class="form-inline" method="POST" action="/index">
+						<div class="form-group">
+						  <div class="input-group">
+							  <span class="input-group-addon">File</span>
+								  <select name="myfile" class="selectpicker form-control">
+									{% for o in files %}
+									<option value="{{ o.name }}">{{ o.name }}</option>
+									{% endfor %}
+								  </select>
+						  </div>
+						</div>
+					  </form>
+				</td><td align="left"><input type="submit" class="btn btn-outline-danger" id="enviar" value="Load" ></td></tr>-->
+			</table>
+		</form>
+		<p id="demo"></p>
+	</div>
+
+	<script src="./static/js/get_path.js"></script>
+
+	<div class="b-example-divider"></div>
+
+	<!--<div class="container_centrado">-->
+		<div class="contenedor_izquierda">
+			<h5>{{message}}</h5> 
+	  
+			<audio controls> 
+				<source src="{{file}}" type="audio/wav"/> 
+			</audio>
+
+			<p>{{file}}</p>
+		  
+			<script src="/static/serve.js" charset="utf-8"></script>
+		</div>
+
+		<div class="contenedor_centro"></div>
+	
+		<div class="contenedor_derecha">
+			<h5>{{message}}</h5> 
+	  
+			<audio controls> 
+			  <source src="{{file}}" type="audio/wav"/> 
+			</audio> 
+	
+			<p>{{cleaned}}</p>
+		  
+			<script src="/static/serve.js" charset="utf-8"></script>
+		</div>
+	<!--</div>-->
+
+	<div class="b-example-divider"></div>
+
+	<!--<div class="container_centrado">-->
+		<div class="contenedor_izquierda">
+			<div class="text_area_container">
+			<h5>Text Transcription</h5>
+			<textarea  id="transcription_window" name="story" rows="7" readonly>
+			{{transcription_text}}
+			</textarea>
+			</div>
+		</div>
+
+		<div class="contenedor_centro"></div>
+	
+		<div class="contenedor_derecha">
+			<div class="text_area_container">
+			<h5>Text diarization</h5>
+			<textarea  id="segments_window" name="story" rows="7" readonly>
+			{{segments}}
+			</textarea>
+			</div>
+		</div>
+	<!--</div>-->
+	
+	<script src="./static/js/blink.js"></script>
+    <audio id='original_sample' src={{original_sample_path}} preload="auto"></audio>
+    <audio id="clean_sample" src={{clean_sample_path}} preload="auto"></audio>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block navigation %}
+<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+	<li><a href="/index" class="nav-link px-2 text-secondary">Transcriber</a></li>
+	<li><a href="/advanced?grabar=True" class="nav-link px-2 text-secondary">Advanced</a></li>
+	<li><a href="/chat" class="nav-link px-2 text-white">Chat</a></li>
+	<li><a href="/config" class="nav-link px-2 text-secondary">Configuration</a></li>
+	<li><a href="/bi" class="nav-link px-2 text-secondary">Bi</a></li>
+  </ul>
+{% endblock %}
+
+{% block body %}
+
+	<div class="no_header"><span style="display:block; height: 25px;"></span>
+
+	<div class="contenedor_izquierda">
+		<h5>Chat window</h5>
+		<form method="POST" enctype="multipart/form-data" action="/chat" id="update_config">
+			<textarea id="prompt_window" name="prompt" rows="5">{{prompt}}</textarea>
+			<br>
+			<input type="submit" onclick="location.href='/chat';" value="Send" ></input>
+		</form>
+	</div>
+
+	<div class="contenedor_centro">	<!--Sirve como separador vertical entre los dos contenedores izquierda-derecha-->
+	</div>
+
+	<div class="contenedor_derecha">
+		<div class="text_area_container">
+			<h5>TARS response</h5>
+			<textarea  id="transcription_window" name="story" rows="5" readonly>
+				{{transcription_text}}
+			</textarea>
+		</div>
+	</div>
+
+	<div class="b-example-divider"></div>
+
+	<div class="text_area_container">
+		<h5>Conversation segments</h5>
+		<textarea  id="segments_window" name="story" rows="7" readonly>
+			{{segments}}
+		</textarea>
+	</div>
+
+{% endblock %}
