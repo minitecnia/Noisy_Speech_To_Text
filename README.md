@@ -35,11 +35,11 @@ Operating systems:
 
 Go to main folder (root) and type the next command for creating a running virtual environment:
 
-env.bat
+> env.bat
 
-Type the next command to run app:
+For running App type the next command:
 
-python app.py
+> python app.py
 
 When running application in local mode, Flask opens a socket in port 5000. We can navigate writting in our web browser: http://localhost:5000/
 
