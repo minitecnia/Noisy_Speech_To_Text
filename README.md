@@ -75,9 +75,9 @@ You can also document commands to lint the code or run tests. These steps help t
 ## Authors and acknowledgment
 - Francisco Jose Ochando Terreros. Ms Computer engineer 
 - Antonio Miguel Mejias Vello. Ms Armament engineer (Telecommunications engineer)
-- Alejandro Gómez Sierra. Geospatial technologies engineer
+- Alejandro Gómez Sierra. Geospatial technologies engineer (Zelenza)
 
-We appreciate the contribution of Spanish Army for this development and the contribution of Zelenza Company for its engineers support.
+We appreciate the contribution of Spanish Army for this development.
 
 ## License
 Open source project
@@ -113,6 +113,7 @@ For sucessfully develop this project we have use the next known technologies:
 - Noisereduce module for digital noise reduction
 - Pyaudio and scipy for audio treatment
 - Whisper module: AI module for speech to text transcription
+- Vosk module (Alphacephei)
 - Openai API for interacting with natural languaje processors
 - Openai ChatGPT for Chat prompting
 - GPT4All platforma for local chat prompting
