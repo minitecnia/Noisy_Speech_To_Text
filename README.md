@@ -87,7 +87,7 @@ Fine tuning models for better transcription.
 
 ## Integrate tools
 
-- [ ] [Set up project integrations](https://gitlab.dev.nato.int/tide-hackathon/noisy-speech-to-text/iberian/instt/-/settings/integrations)
+- [ ] [Set up project integrations]([https://gitlab.dev.nato.int/tide-hackathon/noisy-speech-to-text/iberian/instt/-/settings/integrations](https://github.com/minitecnia/Noisy_Speech_Transcription/tree/main))
 
 ## Adding files
 
