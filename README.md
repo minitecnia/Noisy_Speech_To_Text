@@ -13,9 +13,6 @@ InsTT is Iberian noisy Speech To Text software.
 During military operations, mission success can hinge on intelligence extracted from voice conversations. These communications must be transcribed to text for analysis; however, audio-recordings are rarely of studio-quality. This challenge is to create a Speech-to-Text (STT) system capable of accurately transcribing noisy communications. The system should be designed to overcome various types of noise pollution such as background noise, radio feedback and/or multiple speakers.
 InSTT is a software application intended to help transcription from speech audio to text. To do this task, InSTT is augmented with some features like noise reduction, environmental noise digital discrimination and conversations selection by using machine learning (ML) models and eventually natural language processors (NLP) models.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
 ## Installation
 
 For installing in local mode, download this Git:
