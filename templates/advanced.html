@@ -10,6 +10,8 @@
 	<li><a href="/config" class="nav-link px-2 text-secondary">Configuration</a></li>
 	<li><a href="/bi" class="nav-link px-2 text-secondary">Bi</a></li>
   </ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 {% endblock %}
 
 {% block body %}
@@ -18,37 +20,27 @@
 	
 	<div class="contenedor_izquierda">
 		<h5>Voice transcriber</h5>
-      <form method="POST" enctype="multipart/form-data" action="/index" id="load_audio"></form>
-        <table cellspacing="0" cellpadding="0">
-				  <tr>
-				    <td align="left"><label for="myfile"></label><input type="file" id="myfile" value="Choose your wav file" name="myfile" accept=".wav" ></td>
-				    <td class="table_vertical_spacer"></td>
-            <td align="left"><input type="submit" class="btn btn-outline-danger" id="enviar" value="Load" ></td>
-				  </tr>          
-          <tr>
-            <td></td>
-            <td class="table_vertical_spacer"></td>
-            <td></td>
-          </tr>
-			  </table>
-		  </form>
-
-		  <button type="button" id="vosk-button" class="btn btn-outline-danger" style="vertical-align:middle" >
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-record-btn" viewBox="0 0 16 16">
-				<path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-				<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
-				</svg>
-          Record
-		  </button>
+    <div class="container_centrado">
+      <button type="button" id="vosk-button" class="btn btn-outline-danger" style="vertical-align:middle" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" fill="currentColor" class="bi bi-record-btn" viewBox="0 0 16 16">
+        <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+        </svg> 
+          Listen
+      </button>
+      <p id="transcribing_indicator">{{info}}</p>	
+    </div>
   </div>
 
   <div class="contenedor_centro"></div>
   
   <div class="contenedor_derecha">
-    <h5>Select options</h5>
+    <h5>Select advanced options</h5>
+    <form method="POST" enctype="multipart/form-data" action="/index" id="load_audio">  
         <table cellspacing="0" cellpadding="0">
           <tr>
-            <td><input type="checkbox" id="stationary noise reducer" value="1">Stationary reducer</td>
+            <!--<td><input type="checkbox" id="stationary noise reducer" value="1">Stationary reducer</td>-->
+            <td>Stationary reducer</td>
             <td class="table_vertical_spacer"></td>
             <td><select name="stationary" id="stationary">
               <option value="Yes">Yes</option>
@@ -57,7 +49,8 @@
             </td>
           </tr>
           <tr>
-            <td><input type="checkbox" id="noise reducer model" value="1">Noise reducer</td>
+            <!--<td><input type="checkbox" id="noise reducer model" value="1">Noise reducer</td>-->
+            <td>Noise reducer</td>
             <td class="table_vertical_spacer"></td>
             <td><select name="noise models selector" id="noise models selector">
               <option value="speechbrain/sepformer-whamr16k">WHAMR 16K noise reduction</option>
@@ -66,39 +59,38 @@
             </td>
           </tr>
           <tr>
-            <td><input type="checkbox" id="translator checkbox" value="1">Transcript Model</td>
+            <!--<td><input type="checkbox" id="translator checkbox" value="1">Transcript Model</td>-->
+            <td>Transcript Model</td>
             <td class="table_vertical_spacer"></td>
             <td><select name="model" id="model">
+              <option value="vosksp">Vosk sp</option>
               <option value="tiny">Whisper tiny</option>
               <option value="base">Whisper base</option>
               <option value="small">Whisper small</option>
               <option value="medium">Whisper medium</option>
-              <option value="vosksp">Vosk sp</option>
               </select>
             </td>
           </tr>
-          <tr></tr>
           <tr>
-            <td>Input files path</td>
+            <td></td>
             <td class="table_vertical_spacer"></td>
-            <td><input type="file" id="FileUpload" onchange="selectFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple /></td>
-          </tr>
-          <tr><td>Output files path</td>
-            <td class="table_vertical_spacer"></td>
-            <td><input type="file" id="FileUpload" onchange="selectFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple /></td>
+            <!--<td><input type="file" id="FileUpload" onchange="selectFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple /></td>-->
+            <td align="center"><input type="submit" class="btn btn-outline-danger" id="enviar" value="Load" ></td>
           </tr>
         </table>
+      </form> 
     </div>
 
   <div class="b-example-divider"></div>
 
   <div class="text_area_container">
 		<h5>Diarized transcription</h5>
-		<textarea  id="segments_window" name="story" rows="7" readonly>
+		<textarea  id="segments_window" name="story" rows="8" readonly>
 			{{segments}}
 		</textarea>
 	</div>
 
   </div>
+  <script src="./static/js/vos.js"></script>
 
 {% endblock %}

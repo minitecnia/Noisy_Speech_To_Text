@@ -2,7 +2,7 @@
 {% block navigation %}
 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 	<li><a href="/index" class="nav-link px-2 text-secondary">Transcriber</a></li>
-	<li><a href="/advanced?grabar=True" class="nav-link px-2 text-secondary">Advanced</a></li>
+	<li><a href="/advanced?grabar=False" class="nav-link px-2 text-secondary">Advanced</a></li>
 	<li><a href="/chat" class="nav-link px-2 text-white">Chat</a></li>
 	<li><a href="/config" class="nav-link px-2 text-secondary">Configuration</a></li>
 	<li><a href="/bi" class="nav-link px-2 text-secondary">Bi</a></li>
@@ -41,6 +41,8 @@
 		<textarea  id="segments_window" name="story" rows="7" readonly>
 			{{segments}}
 		</textarea>
+	</div>
+
 	</div>
 
 {% endblock %}
