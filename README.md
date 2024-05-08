@@ -44,7 +44,7 @@ When running application in local mode, Flask opens a socket in port 5000. We ca
 
 ## Web User interface
 
-For Web UI deployment we have used Flask. Flask is a Python web framework and networking library. Yo can use, alternately Tornado which is another framework, using non-blocking network I/O. It can scale to tens of thousands of open connections, making it ideal for long polling, WebSockets, and other applications that require a long-lived connection to each user. When running application in local mode, Flask activates a socket in port 9000. We can navigate writting in our web browser: http://localhost:5000/
+For Web UI deployment we have used Flask. Flask is a Python web framework and networking library. Yo can use, alternately Tornado which is another framework, using non-blocking network I/O. It can scale to tens of thousands of open connections, making it ideal for long polling, WebSockets, and other applications that require a long-lived connection to each user. When running application in local mode, Flask activates a socket in port 5000. We can navigate writting in our web browser: http://localhost:5000/
 
 ## Audio treatment
 
@@ -62,10 +62,13 @@ For transcription and translation functionalities, we chose to explore two open-
 
 - OpenAI whisper: https://github.com/openai/whisper/tree/main
 - Noise reducing Noisereduce: https://pypi.org/project/noisereduce/
+- Flask framework: https://flask.palletsprojects.com/en/3.0.x/
 - Tornado framework: https://www.tornadoweb.org/en/stable/
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+This Git contains a Web framework for deploying a noise reducer with speech to text transcription. Next steps:
+- Enabling whisper and vosk model transcription from audio.
+- Visualizing live transcription in textbox.
 
 ## Contributing
 State if you are open to contributions and what your requirements are for accepting them.
