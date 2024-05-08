@@ -78,7 +78,6 @@ You can also document commands to lint the code or run tests. These steps help t
 ## Authors and acknowledgment
 - Francisco Jose Ochando Terreros. Ms Computer engineer 
 - Antonio Miguel Mejias Vello. Ms Armament engineer (Telecommunications engineer)
-- Alejandro Gómez Sierra. Geospatial technologies engineer (Zelenza)
 
 We appreciate the contribution of Spanish Army for this development.
 
