@@ -124,5 +124,8 @@ For sucessfully develop this project we have use the next known technologies:
 https://commons.wikimedia.org/wiki/Category:Audio_files_of_speeches_about_World_War_II
 
 ## Useful links
-https://github.com/timsainb/noisereduce/tree/master
+- https://github.com/timsainb/noisereduce/tree/master
+- https://github.com/jitsi/jiwer
+- https://github.com/SYSTRAN/faster-whisper
+
 
