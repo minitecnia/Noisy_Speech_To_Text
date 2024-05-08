@@ -33,7 +33,7 @@ logging.basicConfig(filename='instt.log', format='%(asctime)s %(levelname)-8s %(
 app = Flask(__name__)
 # Carpeta de subida
 app.config['UPLOAD_FOLDER'] = '.\static\\audiofiles\\'
-app.config['DOWNLOAD_FOLDER'] = '\static\\audiofiles\\'
+app.config['DOWNLOAD_FOLDER'] = '.\static\\audiofiles\\'
 app.config['TRANSCRIPTION_FOLDER'] = '..\static\\audiofiles\\transcription\\'
 app.config['STT_FOLDER'] = '.\instt\\'
 modelo = stt.load()
@@ -84,35 +84,31 @@ def audio():
 
 @app.route('/advanced', methods=['GET'])
 def advanced():
-    grabar = request.args.get('grabar') # Read the url to get arguments from there
+    # Open vosk model for live transcription
+    grabar = request.args.get('grabar') # Read the url to get argument grabar
     if grabar == 'True':
-        def vosk_start(model):
-            modelo = vos.Model(model)
-            rec = vos.loadmodel(modelo)
-            stream, p = vos.listen()
-            output_file = "vosk_text.txt"
-            transcribe(stream, rec, output_file)
-            #vos.close(stream, p)
-
-        print('Arranca Vosk')
-        threading.Thread(target = vosk_start)
+        modelo = "instt/vosk-model-small-es-0.42"
+        threading.Thread(target = vos.vosk_start(modelo)).start()
+        print('Start Vosk')
         return render_template('advanced.html', segments='Segmentos de audio')
     else:
-        print('Para Vosk')
+        print('Stop Vosk')
+        #vos.close(stream, p)
         return render_template('advanced.html', segments='No hay segmentos')
 
 @app.route('/chat', methods=['GET','POST'])
 def chat():
+    # Open Chat prompting
     prompt = 'Hola TARS!'
     segmentos = 'No hay segmentos'
     if request.method == 'POST':
         prompt = request.form.get("prompt", "Hola TARS!")
         respuesta = assistant.Completion(prompt)
+        # Text to speech transcription
         tts.playvoice(respuesta, 'es')
         return render_template('Chat.html', prompt=prompt, transcription_text = str(respuesta), segments=segmentos)
     else:
         return render_template('Chat.html', prompt=prompt, transcription_text = "Waiting prompts.", segments=segmentos)
-    #return render_template('Chat.html')
 
 @app.route('/config', methods=['GET'])
 def config():
