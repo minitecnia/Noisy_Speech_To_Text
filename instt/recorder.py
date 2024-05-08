@@ -19,13 +19,12 @@ from collections import deque
 # prepended. This helps to prevent chopping the beggining
 # of the phrase.
 
-stream = []
-
 def record_on_detect(file_name, silence_limit=1, silence_threshold=1800, chunk=512, rate=22050, prev_audio=1.5):
     CHANNELS = 1
     FORMAT = pyaudio.paInt16
 
     p = pyaudio.PyAudio()
+    # Open stream
     stream = p.open(format=p.get_format_from_width(2),
                   channels=CHANNELS,
                   rate=rate,
@@ -59,9 +58,9 @@ def record_on_detect(file_name, silence_limit=1, silence_threshold=1800, chunk=5
         else:
             prev_audio.append(data)
 
+    # Close stream and terminate
     stream.stop_stream()
     stream.close()
-
     p.terminate()
 
 
@@ -114,7 +113,6 @@ class Recorder:
         while True:
             
             if stop():
-                #print("Orden de cierre de hilo")
                 self.stream.stop_stream()
                 self.stream.close()
                 self.p.terminate()
@@ -127,9 +125,7 @@ class Recorder:
         '''
         Guarda el audio en un archivo
 
-        Returns
-        -------
-        None.
+        Returns None.
         '''
         wf = wave.open(path_grabacion, "wb")
         wf.setnchannels(self.channels)
@@ -140,9 +136,65 @@ class Recorder:
         
         self.frames = []
 
+    def record_on_detect(file_name, silence_limit=1, silence_threshold=1800, chunk=512, rate=22050, prev_audio=1.5):
+        CHANNELS = 1
+        FORMAT = pyaudio.paInt16
+
+        p = pyaudio.PyAudio()
+        # Open stream
+        stream = p.open(format=p.get_format_from_width(2),
+                  channels=CHANNELS,
+                  rate=rate,
+                  input=True,
+                  output=False,
+                  frames_per_buffer=chunk)
+
+        listen = True
+        started = False
+        rel = rate/chunk
+        frames = []
+
+        prev_audio = deque(maxlen=int(prev_audio * rel))
+        slid_window = deque(maxlen=int(silence_limit * rel))
+
+        while listen:
+            data = stream.read(chunk)
+            slid_window.append(math.sqrt(abs(audioop.avg(data, 4))))
+
+            if(sum([x > silence_threshold for x in slid_window]) > 0):
+                if(not started):
+                    print("Starting record.")
+                    started = True
+            elif (started is True):
+                started = False
+                listen = False
+                prev_audio = deque(maxlen=int(0.5 * rel))
+
+            if (started is True):
+                frames.append(data)
+            else:
+                prev_audio.append(data)
+
+        # Close stream and terminate
+        stream.stop_stream()
+        stream.close()
+        p.terminate()
+
+
+        wf = wave.open(f'{file_name}.wav', 'wb')
+        wf.setnchannels(CHANNELS)
+        wf.setsampwidth(p.get_sample_size(FORMAT))
+        wf.setframerate(rate)
+
+        wf.writeframes(b''.join(list(prev_audio)))
+        wf.writeframes(b''.join(frames))
+        wf.close()
+
 
 if __name__ == "__main__":
+
+    recorder = Recorder()
     i=0
     while(i<10):
-        record_on_detect('sample'+str(i))
+        recorder.record_on_detect('sample'+str(i))
         i+=1

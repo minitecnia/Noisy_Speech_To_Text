@@ -21,7 +21,8 @@ def trans_file(modelo, fichero, idioma='es'):
     result = modelo.transcribe(fichero, language= idioma)
     return result
 
-def transcribe(stream, recognizer, output_file, ):
+def transcribe(stream, recognizer, ):
+    output_file = "vosk_text.txt"
     with open(output_file, "w") as output_file:
         print("Listening for speech. Say 'Termina' to stop.")
         # Start streaming and recognize speech
@@ -61,6 +62,12 @@ def close(stream, p):
     # Terminate the PyAudio object
     p.terminate()
 
+def vosk_start(model):
+    modelo = vosk.Model(model)
+    rec = loadmodel(modelo)
+    stream, p = listen()
+    transcribe(stream, rec)
+
 
 if __name__ == "__main__":
 
@@ -81,7 +88,7 @@ if __name__ == "__main__":
     # Specify the path for the output text file
     output_file = "recognized_text.txt"
 
-    transcribe(stream, rec, output_file)
+    transcribe(stream, rec, )
 
     close(stream, p)
 
