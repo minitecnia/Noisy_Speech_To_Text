@@ -67,7 +67,7 @@ For transcription and translation functionalities, we chose to explore two open-
 
 ## Roadmap
 This Git contains a Web framework for deploying a noise reducer with speech to text transcription. Next steps:
-- Enabling whisper and vosk model transcription from audio.
+- Enabling whisper (optionally fasterwhisper) and vosk model transcription from audio.
 - Visualizing live transcription in textbox.
 
 ## Contributing
