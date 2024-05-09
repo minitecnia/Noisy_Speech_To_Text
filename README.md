@@ -34,7 +34,7 @@ Go to main folder (root) and type the next command for creating a running virtua
 
 > env.bat
 
-For running App type the next command:
+For running App type the next command (in Windows command line):
 
 > python app.py
 
