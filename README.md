@@ -127,5 +127,6 @@ https://commons.wikimedia.org/wiki/Category:Audio_files_of_speeches_about_World_
 - https://github.com/timsainb/noisereduce/tree/master
 - https://github.com/jitsi/jiwer
 - https://github.com/SYSTRAN/faster-whisper
+- https://github.com/davabase/whisper_real_time/tree/master
 
 
