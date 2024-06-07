@@ -12,6 +12,10 @@ warnings.filterwarnings('ignore')
 model_path = "vosk-model-en-us-0.42-gigaspeech"
 model_path = "vosk-model-small-es-0.42"
 
+def listdevices():
+    p = pyaudio.PyAudio()
+    for i in range(p.get_device_count()):
+        print (p.get_device_info_by_index(i))
 
 def loadmodel(model, rate=16000):
     rec = vosk.KaldiRecognizer(model, rate)
@@ -76,9 +80,6 @@ if __name__ == "__main__":
     chunks = 4096
     # Create a recognizer
     reco = vosk.KaldiRecognizer(modelo, 16000)
-
-    #for i in range(p.get_device_count()):
-    #    print (p.get_device_info_by_index(i))
 
     # Open the stream
     stream, p = listen()
